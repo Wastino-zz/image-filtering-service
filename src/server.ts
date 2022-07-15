@@ -33,13 +33,13 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req:Request, res:Response ) => {
+  app.get( "/", async ( req, res ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
 
   //Image Filter Endpoint: Get request to filter the images
   app.get( "/filteredimage/", async ( req:Request, res:Response) => {
-    let { image_url } :{image_url:string} = req.query;
+    let {image_url} :{image_url:string} = req.query;
 
     if (!image_url) {
       return res.status(401).send('image_url required')
